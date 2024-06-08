@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('booking_history', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('booking_id')->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
+            $table->enum('action',['Create', 'Updated', 'Cancelled']);
+            $table->dateTime('action_time')->useCurrent();
             $table->timestamps();
         });
     }

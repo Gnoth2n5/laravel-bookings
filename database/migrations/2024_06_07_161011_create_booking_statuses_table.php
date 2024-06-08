@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('booking_statuses', function (Blueprint $table) {
             $table->id();
+            $table->string('status_name');
             $table->timestamps();
         });
     }
